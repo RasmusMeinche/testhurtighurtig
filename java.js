@@ -25,20 +25,23 @@ let attempts = 0;
 let guess;
 
 
+
 function startGame() {
+    // Event listener til knappen
+    document.querySelector("button").addEventListener("click", function () {
+        const inputElement = document.querySelector("input");
+        const guess = Number(inputElement.value);
 
-    document.querySelector("input").addEventListener("input", function () {
-        const guess = Number(this.value);
-
-        if (isNaN(guess) || this.value === "") {
+        if (isNaN(guess) || inputElement.value === "") {
             document.querySelector("#text").innerHTML = "Gæt venligst på et tal";
         } else if (guess < minNum || guess > maxNum) {
             document.querySelector("#text").innerHTML = `Gæt et nummer mellem ${minNum} - ${maxNum}`;
         } else {
             attempts++;
             if (guess === answer) {
-                document.querySelector("#text").innerHTML = `Tillykke! Du gættede rigtigt på ${attempts - 1} forsøg.`;
-                this.disabled = true;
+                document.querySelector("#text").innerHTML = `Tillykke! Du gættede rigtigt på ${attempts} forsøg.`;
+                inputElement.disabled = true; // Disable input efter korrekt gæt
+                this.disabled = true; // Disable knappen
             } else if (guess < answer) {
                 document.querySelector("#text").innerHTML = "For lavt! Prøv igen.";
             } else {
@@ -47,8 +50,6 @@ function startGame() {
         }
     });
 }
-
-// Start spillet, når siden er indlæst
 document.addEventListener("DOMContentLoaded", function () {
     startGame();
 });
