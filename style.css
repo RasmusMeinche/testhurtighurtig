@@ -39,3 +39,11 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: blue;
 }
+
+#winVideo {
+    display: none;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+}

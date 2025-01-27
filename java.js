@@ -40,8 +40,11 @@ function startGame() {
             attempts++;
             if (guess === answer) {
                 document.querySelector("#text").innerHTML = `Tillykke! Du gættede rigtigt på ${attempts} forsøg.`;
-                inputElement.disabled = true; // Disable input efter korrekt gæt
-                this.disabled = true; // Disable knappen
+                inputElement.disabled = true;
+                this.disabled = true;
+                const winVideo = document.querySelector("#winVideo");
+                winVideo.style.display = "block";
+                winVideo.play();
             } else if (guess < answer) {
                 document.querySelector("#text").innerHTML = "For lavt! Prøv igen.";
             } else {
