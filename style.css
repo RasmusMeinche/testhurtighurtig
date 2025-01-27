@@ -30,6 +30,11 @@ input {
     color: black;
 }
 
+button {
+    border-radius: 0.5rem;
+    padding: 10px;
+}
+
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: blue;
