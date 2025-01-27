@@ -1,0 +1,20 @@
+.head{
+    width:100%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+h1 {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.game {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.none{
+    display: none;
+}

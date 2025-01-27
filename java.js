@@ -17,14 +17,71 @@ if (value) {
 
 const minNum = 1;
 const maxNum = 100;
-/* Genrate et random tal mellem 1 & 100 */
 const answer = Math.floor(Math.random()*(maxNum - minNum + 1));
 
 console.log(answer);
 
 let attempts = 0;
 let guess;
-let running = true;
+
+
+function startGame() {
+
+    // Event listener for input-feltet
+    document.querySelector("input").addEventListener("input", function () {
+        // Hent værdien fra inputfeltet
+        const guess = Number(this.value); // Konverter input til tal
+
+        // Tjek, om værdien er et tal
+        if (isNaN(guess) || this.value === "") {
+            document.querySelector("#text").innerHTML = "Gæt venligst på et tal";
+        } else if (guess < minNum || guess > maxNum) {
+            document.querySelector("#text").innerHTML = `Gæt et nummer mellem ${minNum} - ${maxNum}`;
+        } else {
+            attempts++;
+            if (guess === answer) {
+                document.querySelector("#text").innerHTML = `Tillykke! Du gættede rigtigt på ${attempts - 1} forsøg.`;
+                // Deaktiver inputfeltet efter korrekt gæt
+                this.disabled = true;
+            } else if (guess < answer) {
+                document.querySelector("#text").innerHTML = "For lavt! Prøv igen.";
+            } else {
+                document.querySelector("#text").innerHTML = "For højt! Prøv igen.";
+            }
+        }
+    });
+}
+
+// Start spillet, når siden er indlæst
+document.addEventListener("DOMContentLoaded", function () {
+    startGame();
+});
+/* else if (guess < minNum || guess > maxNum) {
+    window.alert("indstast et tal mellem 1 - 100")
+}
+else {
+    attempts++;
+    if(guess < answer) {
+        window.alert("Det var for lavt, prøv igen")
+    }
+    else if (guess > answer) {
+        window.alert("Gættet var for højt, prøv igen")
+    }
+    else{
+        window.alert(`Korrekt, svaret var ${answer}. Det tog dig ${attempts} forsøg.`)
+        running = false;
+    }
+    
+}}; */
+
+/* const minNum = 1;
+const maxNum = 100;
+const answer = Math.floor(Math.random()*(maxNum - minNum + 1));
+
+console.log(answer);
+
+let attempts = 0;
+let guess;
 
 function startGame() {
 
@@ -55,4 +112,4 @@ else {
 
 document.addEventListener("DOMContentLoaded", function () {
     startGame();
-});
+}); */
