@@ -5,16 +5,32 @@
 }
 
 h1 {
-    width: 100%;
     margin: 0 auto;
+    background-color: aliceblue;
+    width: 30%;
+    padding: 10px;
+    border-radius: 1rem;
 }
 
 .game {
     width: 100%;
     margin: 0 auto;
     text-align: center;
+    color: aliceblue;
 }
 
 .none{
     display: none;
+}
+
+input {
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+    color: black;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: blue;
 }

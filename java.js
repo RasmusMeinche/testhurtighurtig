@@ -27,12 +27,9 @@ let guess;
 
 function startGame() {
 
-    // Event listener for input-feltet
     document.querySelector("input").addEventListener("input", function () {
-        // Hent værdien fra inputfeltet
-        const guess = Number(this.value); // Konverter input til tal
+        const guess = Number(this.value);
 
-        // Tjek, om værdien er et tal
         if (isNaN(guess) || this.value === "") {
             document.querySelector("#text").innerHTML = "Gæt venligst på et tal";
         } else if (guess < minNum || guess > maxNum) {
@@ -41,7 +38,6 @@ function startGame() {
             attempts++;
             if (guess === answer) {
                 document.querySelector("#text").innerHTML = `Tillykke! Du gættede rigtigt på ${attempts - 1} forsøg.`;
-                // Deaktiver inputfeltet efter korrekt gæt
                 this.disabled = true;
             } else if (guess < answer) {
                 document.querySelector("#text").innerHTML = "For lavt! Prøv igen.";
